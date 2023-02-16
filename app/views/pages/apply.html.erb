@@ -1,0 +1,103 @@
+<!--
+  This example requires some changes to your config:
+
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<div class="max-w-lg mx-auto">
+<form class="space-y-8">
+
+  <div class="space-y-8 sm:space-y-5">
+    <div class="space-y-6 pt-8 sm:space-y-5 sm:pt-10">
+      <div class="space-y-6 sm:space-y-5">
+        <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4  sm:pt-5">
+          <label for="first-name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">First name</label>
+          <div class="mt-1 sm:col-span-2 sm:mt-0">
+            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm" placeholder="ryan">
+          </div>
+        </div>
+
+        <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4  sm:pt-5">
+          <label for="last-name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Last name</label>
+          <div class="mt-1 sm:col-span-2 sm:mt-0">
+            <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm" placeholder="kulp">
+          </div>
+        </div>
+
+        <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4  sm:pt-5">
+          <label for="email" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Email address</label>
+          <div class="mt-1 sm:col-span-2 sm:mt-0">
+            <input id="email" name="email" type="email" autocomplete="email" class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm sm:max-w-xs" placeholder="ryan@fomo.com">
+          </div>
+        </div>
+
+        <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4  sm:pt-5">
+          <label for="website" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Website</label>
+          <div class="mt-1 sm:col-span-2 sm:mt-0">
+            <input id="website" name="website" type="url" class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm sm:max-w-xs" placeholder="fomo.com">
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+      <div class="space-y-6   sm:space-y-5">
+        <div class="pt-6 sm:pt-5">
+          <div role="group" aria-labelledby="label-notifications">
+            <div class="sm:grid sm:grid-cols-3 sm:items-baseline sm:gap-4">
+              <div>
+                <div class="text-base font-medium text-gray-900 sm:text-sm sm:text-gray-700" id="label-notifications">What is your role?</div>
+              </div>
+              <div class="sm:col-span-2">
+                <div class="max-w-lg">
+                  <p class="text-sm text-gray-500">These are delivered via SMS to your mobile phone.</p>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-center">
+                      <input id="founder" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                      <label for="founder" class="ml-3 block text-sm font-medium text-gray-700">Founder</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="c-suite" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                      <label for="c-suite" class="ml-3 block text-sm font-medium text-gray-700">C-Suite</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input id="employee" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                      <label for="employee" class="ml-3 block text-sm font-medium text-gray-700">Employee</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4  sm:pt-5">
+      <label for="snippet" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Paste a snippet of newsletter (optional)</label>
+        <div class="mt-1 sm:col-span-2 sm:mt-0">
+              <textarea id="snippet" name="snippet" rows="3" class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+              <p class="mt-2 text-sm text-gray-500">Write a few sentences about yourself.</p>
+        </div>
+    </div>
+  </div>
+
+
+
+  <div class="pt-5">
+    <div class="flex mx-auto">
+      <button type="submit" class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Apply to Quinndate</button>
+    </div>
+  </div>
+</form>
+  </div>
