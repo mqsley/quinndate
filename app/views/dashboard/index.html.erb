@@ -1,1 +1,54 @@
-<%= render partial: "shared/heading", locals: { title: 'Dashboard', description: '' } %>
+<%= render partial: "shared/heading", locals: { title: 'Dashboard', tagline: 'Browse newsletters and submit your own' } %>
+
+
+<!-- Dashbosrd box -->
+<div class="border border-black border-2 p-5 max-w-xl mx-auto mb-20">
+  <div class="flex">
+    <div class="basis-1/2">
+      <div class="flex gap-x-2">
+        <div class="basis-1/6">
+          <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
+        </div>
+        <div class="basis-5/6">
+          <p class="text-lg">{{Heaidng}}</p>
+          <p class="text-sm">{{subheaing}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="basis-1/2 text-right">
+      <p>{{num}} subscribers</p>
+      <p class="underline">share update</p>
+      <p class="underline">edit subscription</p>
+    </div>
+  </div>
+</div>
+
+<!-- newsletter space -->
+
+<div class=" p-5 max-w-xl mx-auto mb-20">
+<% 5.times do%>
+  <div class="flex">
+    <div class="basis-1/2">
+      <div class="flex gap-x-2">
+        <div class="basis-1/6">
+          <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
+        </div>
+        <div class="basis-5/6">
+          <p class="text-lg">{{Heaidng}}</p>
+          <p class="text-sm">{{subheaing}} {{url}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="basis-1/2 text-right">
+      <div class="relative flex items-start py-4">
+        <div class="min-w-0 flex-1 text-sm">
+          <label for="subscribed" class="font-medium text-gray-700">Subscribed</label>
+        </div>
+        <div class="ml-3 flex h-5 items-center">
+          <input id="subscribed" aria-describedby="subscribed-description" name="subscribed" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

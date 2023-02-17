@@ -1,17 +1,6 @@
-<!--
-  This example requires some changes to your config:
+<%= render partial: "shared/heading", locals: { title: 'Apply to QuinnDate', tagline: 'Each submission is reviewed by our team' } %>
 
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
+
 <div class="max-w-lg mx-auto">
 <form class="space-y-8">
 
@@ -96,7 +85,7 @@
 
   <div class="pt-5">
     <div class="flex mx-auto">
-      <button type="submit" class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Apply to Quinndate</button>
+      <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Apply to Quinndate</button>
     </div>
   </div>
 </form>
