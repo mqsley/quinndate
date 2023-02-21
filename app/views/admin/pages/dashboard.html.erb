@@ -29,13 +29,16 @@
                 <td class="max-w-s px-3 py-4 text-xs text-gray-500"><%= user_submission.text %></td>
                 <td class="  py-4 text-xs text-gray-500">
                   <div>
-                    <select id="location" name="location" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                      <option selected>Pending</option>
-                      <option>Approved</option>
-                      <option>Rejected</option>
+                    <%= form_for user_submission, url: admin_user_submission_path(user_submission) do |f| %>
+                    <select id="user_submission_status" name="user_submission[status]" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                      <option <%= 'selected' if user_submission.status.nil? %>>Pending</option>
+                      <option <%= 'selected' if user_submission.status == 'Approved' %>>Approved</option>
+                      <option <%= 'selected' if user_submission.status == 'Rejected' %>>Rejected</option>
                     </select>
+                    <%= f.submit 'Update', class: 'inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'%>
+                    <% end %>
                   </div>
-                  </td>
+                </td>
               </tr>
             <% end %>
 

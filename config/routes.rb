@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'dashboard#index'
   get 'stakeholder_updates/new', to: 'stakeholder_updates#new'
 
-  resources :user_submissions, only: [:create] 
+  resources :user_submissions, only: [:create]
 
   resources :subscribe, only: [:index]
   # resources :dashboard, only: [:index]
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/', to: 'pages#dashboard'
+    resources :user_submissions, only: [:update] 
   end
   # authenticated :user, -> user { user.admin? } do
   #   namespace :admin do
