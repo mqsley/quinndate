@@ -5,7 +5,7 @@
 <div class="max-w-lg mx-auto">
   <%= form_for UserSubmission.new do |f| %>
     <!-- <form class="space-y-8"> -->
-<input type="hidden" id="user_submission_plan_name" name="user_submission[plan_name]" value="<% params[:plan] %>"
+      <input type="hidden" id="user_submission_plan_name" name="user_submission[plan_name]" value="<%= plan_name %>">
       <div class="space-y-8 sm:space-y-5">
         <div class="space-y-6 pt-8 sm:space-y-5 sm:pt-10">
           <div class="space-y-6 sm:space-y-5">
