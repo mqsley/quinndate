@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'apply', to: 'pages#apply'
   get 'start', to: 'pages#start'
-  get 'thanks', to: 'pages#thanks', as: path
+  get 'thanks', to: 'pages#thanks', as: 'thanks'
 
   devise_for :users
   get 'logout', to: 'pages#logout', as: 'logout'
