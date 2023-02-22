@@ -4,7 +4,7 @@ class Admin::UserSubmissionsController < ApplicationController
   def update
 
     @user_submission.update(user_submission_params)
-
+    redirect_to admin_path, notice: 'User submission updated successfully'
   end
 
 
