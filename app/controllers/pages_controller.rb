@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, only: [:logout]
+  before_action :authenticate_user!, only: [:start, :logout]
 
   def home
   end
