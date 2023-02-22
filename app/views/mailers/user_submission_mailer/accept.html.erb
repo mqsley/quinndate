@@ -2,6 +2,9 @@
 
 <p>We've reviewed your application for FoundrDigest and are excited to extend you an invitation to join!</p>
 
-<p>Get started here: << INSERT LINK HERE >></p>
+<p>Get started here: << <a href="<%= ENV['base_url']+'/users/sign_in' %>">LINK HERE</a> >></p>
 
-<p>Foundr Digest Team</p>
+<p>Username: <%= @email %></p>
+<p>Password: <%= @password %></p>
+
+<p>Quinndate Team</p>

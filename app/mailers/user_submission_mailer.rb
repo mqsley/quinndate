@@ -5,8 +5,12 @@ class UserSubmissionMailer < ApplicationMailer
 
   end
 
-  def accept(user_submission)
+  def accept(user_submission, password)
+
+      @email = user_submission.email
       @name = user_submission.name
+      @password = password
+
       mail(to: user_submission.email, subject: "Congrats you were accepted")
   end
 
