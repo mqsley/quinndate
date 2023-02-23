@@ -10,6 +10,13 @@ class PagesController < ApplicationController
   def thanks
   end
 
+  def magic_link
+    user = User.find_by(auth_code: params[:auth_code])
+    sign_in(user)
+    puts "#{start_path}"
+    redirect_to start_path
+  end
+
   def start
   end
 
