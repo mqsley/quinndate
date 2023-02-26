@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#home'
-  get 'apply', to: 'pages#apply'
+  get 'apply', to: 'pages#apply', as: 'apply'
   get 'start', to: 'pages#start', as: 'start'
   get 'thanks', to: 'pages#thanks', as: 'thanks'
   get 'magic_link', to: 'pages#magic_link', as: 'magic_link'
@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'dashboard#index'
   get 'stakeholder_updates/new', to: 'stakeholder_updates#new'
 
+
   resources :user_submissions, only: [:create]
+  resources :projects, only: [:update]
+  resources :subscribers, only: [:create, :destroy]
 
   resources :subscribe, only: [:index]
   # resources :dashboard, only: [:index]

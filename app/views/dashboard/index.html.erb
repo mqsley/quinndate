@@ -7,11 +7,11 @@
     <div class="basis-1/2">
       <div class="flex gap-x-2">
         <div class="basis-1/6">
-          <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
+          <a href="https://placeholder.com"><img src="https://logo.clearbit.com/<%= @project.website %>"></a>
         </div>
         <div class="basis-5/6">
-          <p class="text-lg">{{Heaidng}}</p>
-          <p class="text-sm">{{subheaing}}</p>
+          <p class="text-lg"><%= @project.title %></p>
+          <p class="text-sm"><%= @project.description %></p>
         </div>
       </div>
     </div>
@@ -25,30 +25,70 @@
 
 <!-- newsletter space -->
 
-<div class=" p-5 max-w-xl mx-auto mb-20">
-<% 5.times do%>
-  <div class="flex">
+<div class=" p-5 max-w-xl mx-auto mb-20 space-y-4">
+<% @other_projects.each do |proj|%>
+  <div class="flex border border-dashed border-2 p-2">
     <div class="basis-1/2">
       <div class="flex gap-x-2">
         <div class="basis-1/6">
-          <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
+          <a href="https://placeholder.com"><img src="https://logo.clearbit.com/<%= proj.website %>"></a>
         </div>
         <div class="basis-5/6">
-          <p class="text-lg">{{Heaidng}}</p>
-          <p class="text-sm">{{subheaing}} {{url}}</p>
+          <p class="text-lg"><%= proj.title %></p>
+          <p class="text-xs"><%= proj.description %> (<%= proj.website %>)</p>
         </div>
       </div>
     </div>
     <div class="basis-1/2 text-right">
       <div class="relative flex items-start py-4">
         <div class="min-w-0 flex-1 text-sm">
-          <label for="subscribed" class="font-medium text-gray-700">Subscribed</label>
+              <label for="<%= proj.id %>_subscribed_status" class="font-medium text-gray-700">{{ Subscribed Status }}</label>
         </div>
-        <div class="ml-3 flex h-5 items-center">
-          <input id="subscribed" aria-describedby="subscribed-description" name="subscribed" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-        </div>
+            <div class="ml-3 flex h-5 items-center">
+              <% subscriber = Subscriber.find_by(user_id: current_user.id, project_id: proj.id) %>
+              <input onchange="checkboxChanged(this)" <%= 'checked' if subscriber %> data-subscriber-id="<%= subscriber.try(:id) %>" data-project-id="<%= proj.id %>" id="<%= proj.id %>_subscribed_status" aria-describedby="subscribed" name="subscribed" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-brand-orange focus:ring-brand-orange-dark">
+            </div>
       </div>
     </div>
   </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  function checkboxChanged(checkbox) {
+    let projectId = checkbox.dataset.projectId;
+
+    if (checkbox.checked) {
+      createSubscription(projectId);
+    } else {
+      let subscriberId = checkbox.dataset.subscriberId;
+      deleteSubscription(projectId, subscriberId);
+    }
+  }
+
+  function createSubscription(projectId) {
+    $.ajax({
+      url: '/subscribers',
+      method: 'POST',
+      data: { subscriber: { project_id: projectId } },
+      success: function(data){
+        let subscriberId = data.subscriber_id;
+        let projectId = data.project_id;
+        let checkbox = document.getElementById(projectId + '_subscribed_status')
+        checkbox.dataset.subscriberId = subscriberId;
+      }
+    })
+  }
+
+  function deleteSubscription(projectId, subscriberId) {
+    $.ajax({
+      url: '/subscribers/' + subscriberId,
+      method: 'DELETE',
+      data: { subscriber: { project_id: projectId } },
+      success: function(data){
+        console.log('received response from DELETE subscriber request');
+        console.log(data);
+      }
+    })
+  }
+</script>

@@ -12,12 +12,17 @@ class PagesController < ApplicationController
 
   def magic_link
     user = User.find_by(auth_code: params[:auth_code])
-    sign_in(user)
-    puts "#{start_path}"
-    redirect_to start_path
+      if user
+        sign_in(user)
+        redirect_to start_path
+      else
+        redirect_to user_session_path, alert: "bad link please sign in with your email and password"
+      end
   end
 
   def start
+    @project = current_user.default_project
+    redirect_to dashboard_path if (@project.title? && @project.description?)
   end
 
   def logout

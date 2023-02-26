@@ -12,14 +12,14 @@
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4  sm:pt-5">
               <label for="first_name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">First name</label>
               <div class="mt-1 sm:col-span-2 sm:mt-0">
-                <%= f.text_field :first_name, autocomplete: "given-name", class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm", placeholder: "ryan" %>
+                <%= f.text_field :first_name, autocomplete: "given-name", required: true, class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm", placeholder: "ryan" %>
               </div>
             </div>
 
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4  sm:pt-5">
               <label for="last_name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Last name</label>
               <div class="mt-1 sm:col-span-2 sm:mt-0">
-                <%= f.text_field :last_name, autocomplete: "given-name", class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm", placeholder: "ryan" %>
+                <%= f.text_field :last_name, autocomplete: "given-name", required: true, class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm", placeholder: "ryan" %>
 
               </div>
             </div>
@@ -27,14 +27,14 @@
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4  sm:pt-5">
               <label for="email" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Email address</label>
               <div class="mt-1 sm:col-span-2 sm:mt-0">
-                <%= f.text_field :email, type: "email", autocomplete: "email", class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm", placeholder: "ryan@fomo.com" %>
+                <%= f.text_field :email, type: "email", autocomplete: "email", required: true, class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm", placeholder: "ryan@fomo.com" %>
               </div>
             </div>
 
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4  sm:pt-5">
               <label for="website" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Website</label>
               <div class="mt-1 sm:col-span-2 sm:mt-0">
-                <%= f.text_field :website, type: "url", autocomplete: "email", class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm", placeholder: "https://fomo.com" %>
+                <%= f.text_field :website, type: "url", autocomplete: "email", required: true, class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm", placeholder: "https://fomo.com" %>
               </div>
             </div>
 
@@ -56,15 +56,15 @@
                       <p class="text-sm text-gray-500">These are delivered via SMS to your mobile phone.</p>
                       <div class="mt-4 space-y-4">
                         <div class="flex items-center">
-                          <%= f.radio_button :job_role, "founder", class: "h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500" %>
+                          <%= f.radio_button :job_role, "founder", class: "h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500", required: true %>
                           <label for="founder" class="ml-3 block text-sm font-medium text-gray-700">Founder</label>
                         </div>
                         <div class="flex items-center">
-                          <%= f.radio_button :job_role, "c-suite", class: "h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500" %>
+                          <%= f.radio_button :job_role, "c-suite", class: "h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500", required: true  %>
                           <label for="c-suite" class="ml-3 block text-sm font-medium text-gray-700">C-Suite</label>
                         </div>
                         <div class="flex items-center">
-                          <%= f.radio_button :job_role, "employee", class: "h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500" %>
+                          <%= f.radio_button :job_role, "employee", class: "h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500", required: true %>
                           <label for="employee" class="ml-3 block text-sm font-medium text-gray-700">Employee</label>
                         </div>
                       </div>
@@ -76,9 +76,9 @@
           </div>
 
         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4  sm:pt-5">
-          <label for="text" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Paste a snippet of newsletter (optional)</label>
+          <label for="text" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Paste a snippet of newsletter</label>
             <div class="mt-1 sm:col-span-2 sm:mt-0">
-                  <%= f.text_area :text, class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm" %>
+                  <%= f.text_area :text, class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm", required: true %>
 
             </div>
         </div>
