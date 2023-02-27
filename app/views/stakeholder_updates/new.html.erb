@@ -2,13 +2,19 @@
 
 <div class="max-w-3xl mx-auto">
   <%= form_with model: StakeholderUpdate.new do |form| %>
+    <div class="py-5">
+      <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+      <div class="mt-1">
+      <%= form.text_field :title, required: true, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm", placeholder: "December 2022 BySimpli" %>
+      </div>
+    </div>
     <div class="field">
       <%= form.label :content %>
       <%= form.rich_text_area :content %>
     </div>
 
   <div class="text-right">
-    <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent bg-primary py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-primary-hover-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Share</button>
+    <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent bg-primary py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-primary-hover-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Preview and Confirm</button>
   </div>
     <% end %>
 </div>

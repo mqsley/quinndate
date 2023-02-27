@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :user_submissions, only: [:create]
   resources :projects, only: [:update]
   resources :subscribers, only: [:create, :destroy]
-  resources :stakeholder_updates, only: [:new, :create, :show]
+  resources :stakeholder_updates, only: [:new, :create, :show, :update]
 
   resources :subscribe, only: [:index]
   # resources :dashboard, only: [:index]
