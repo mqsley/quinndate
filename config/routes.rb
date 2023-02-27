@@ -9,12 +9,12 @@ Rails.application.routes.draw do
   get 'logout', to: 'pages#logout', as: 'logout'
 
   get 'dashboard', to: 'dashboard#index'
-  get 'stakeholder_updates/new', to: 'stakeholder_updates#new'
 
 
   resources :user_submissions, only: [:create]
   resources :projects, only: [:update]
   resources :subscribers, only: [:create, :destroy]
+  resources :stakeholder_updates, only: [:new, :create, :show]
 
   resources :subscribe, only: [:index]
   # resources :dashboard, only: [:index]
