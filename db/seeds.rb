@@ -15,10 +15,11 @@ end
 
 def seed_db!
 user = User.create!(email: Faker::Internet.email, password: 'password')
-user.projects.create!(title: Faker::Company.bs, description: Faker::Quotes::Shakespeare.hamlet_quote, website: websites.sample)
+project = user.projects.create!(title: Faker::Company.bs, description: Faker::Quotes::Shakespeare.hamlet_quote, website: websites.sample)
+stakeholder_update = project.stakeholder_updates.create!(title: Faker::Company.bs, content: Faker::Quotes::Chiquito.joke)
 end
 
-5.times do
+15.times do
   seed_db!
 end
 

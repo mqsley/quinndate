@@ -5,8 +5,8 @@ class User < ApplicationRecord
 
   scope :subscribed, -> { where(paying_customer: true) }
 
-  has_many :projects
-  has_many :subscribers
+  has_many :projects, dependent: :destroy
+  has_many :subscribers, dependent: :destroy
   has_many :stakeholder_updates, through: :projects
 
   before_create :generate_auth_code
@@ -15,6 +15,9 @@ class User < ApplicationRecord
     projects.order(created_at: :asc).first
   end
 
+  def name
+    "#{first_name} #{last_name}"
+  end
 
   def generate_auth_code
     self.auth_code = SecureRandom.hex(20)
