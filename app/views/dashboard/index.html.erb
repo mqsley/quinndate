@@ -17,7 +17,9 @@
     </div>
     <div class="basis-1/2 text-right">
       <p><%= @project.subscribers.count %> subscribers</p>
-      <p><a class="underline"href="/stakeholder_updates/new">Write update</a> | <a class="underline" href="#">View last</a></p>
+      <p><a class="underline"href="/stakeholder_updates/new">Write update</a> <% unless current_user.stakeholder_updates.count.zero? %>
+          | <a href="<%= stakeholder_update_path(current_user.stakeholder_updates.last) %>" class="text-brand-orange underline">View last</a>
+        <% end %></p>
       <p class="underline">edit subscription</p>
     </div>
   </div>
