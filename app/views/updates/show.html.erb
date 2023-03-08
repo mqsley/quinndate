@@ -1,0 +1,9 @@
+<%= render partial: "shared/heading", locals: { title: @stakeholder_update.title, tagline: 'Review your update.' } %>
+
+<%= @stakeholder_update.content %>
+
+<%= form_for @stakeholder_update do |f| %>
+
+<input type="hidden" id="stakeholder_update_confirmed_at" name="stakeholder_update[confirmed_at]" value="<%= DateTime.now %>">
+
+<% end %>
