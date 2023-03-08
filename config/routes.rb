@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :user_submissions, only: [:create]
   resources :projects, only: [:update]
   resources :subscribers, only: [:create, :destroy]
-  resources :stakeholder_updates, only: [:new, :create, :show, :update]
+  resources :stakeholder_updates, only: [:new, :create, :show, :update, :edit]
   resources :updates, only: [:show]
 
   resources :subscribe, only: [:index]
@@ -34,10 +34,11 @@ Rails.application.routes.draw do
   end
 
   # admin panels
-
-  namespace :admin do
-    get '/', to: 'pages#dashboard'
-    resources :user_submissions, only: [:update]
+  authenticated :user, -> user { user.admin? } do
+    namespace :admin do
+      get '/', to: 'pages#dashboard'
+      resources :user_submissions, only: [:update]
+    end
   end
   # authenticated :user, -> user { user.admin? } do
   #   namespace :admin do

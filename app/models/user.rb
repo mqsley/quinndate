@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   include Signupable
-  include Onboardable
   include Billable
 
   scope :subscribed, -> { where(paying_customer: true) }
@@ -19,8 +18,13 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def finished_onboarding?
+    stripe_subscription_id?
+  end
+
   def generate_auth_code
     self.auth_code = SecureRandom.hex(20)
   end
+
 
 end

@@ -4,6 +4,9 @@ class UserSubmissionsController < ApplicationController
     redirect_to thanks_path
   end
 
+  def edit
+  end
+
 private
 
   def user_submission_params

@@ -18,9 +18,17 @@
     <div id="main-nav" class="w-full flex-grow sm:flex text-right sm:w-auto hidden" data-header-target="mainNav">
       <div class="text-sm sm:flex-grow">
         <% nav_link_classes = 'ml-8 whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900' %>
-        <a href="/admin" class="<%= nav_link_classes %>">admin</a>
+        <% if current_user %>
+        <% if current_user.admin? %>
+          <a class="<%= nav_link_classes %>" href="/admin">Admin</a>
+        <% end %>
         <a href="/dashboard" class="<%= nav_link_classes %>">dashboard</a>
+        <a href="/account" class="<%= nav_link_classes %>">account</a>
         <a href="/logout" class="<%= nav_link_classes %>">logout</a>
+        <% else %>
+        <a href="/#pricing" class="<%= nav_link_classes %>">Apply</a>
+        <a href="/users/sign_in" class="<%= nav_link_classes %>">Sign In</a>
+        <% end %>
       </div>
     </div>
   </nav>

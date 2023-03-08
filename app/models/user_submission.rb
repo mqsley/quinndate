@@ -14,9 +14,9 @@ class UserSubmission < ApplicationRecord
 
   def accept!
     password = generate_random_string
-    created_user = User.create!(email: self.email, first_name: self.first_name, last_name: self.last_name, password: password)
+    created_user = User.create!(email: self.email, first_name: self.first_name, last_name: self.last_name, plan_name: self.plan_name, password: password)
     created_user.projects.create!(website: self.website)
-    UserSubmissionMailer.accept(self, created_user).deliver
+    UserSubmissionMailer.accept(self, created_user, password).deliver
   end
 
   def reject!
