@@ -2,6 +2,10 @@ task :insert_task_name => :environment do
   # insert logic, e.g. a cron job for Heroku Scheduler add-on
 end
 
+task send_digests: :environment do
+  DigestService.perform
+end
+
 ### USER ONBOARDING - run hourly at 0:00 ###
 task :reminder_to_start_trial => :environment do
   User.where(created_at: 24.hours.ago..23.hours.ago).each do |user|
