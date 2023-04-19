@@ -3,9 +3,9 @@
     <div class="flex items-center flex-no-shrink text-white mr-6">
       <% logo_path = root_path %>
       <%= link_to logo_path do %>
-        <%= image_tag "avatar.png",  style: "max-height: 42px" %>
+        <%= image_tag "https://www.mquinn.online/uploads/1/2/4/5/12455374/8168620-gmail-email-mail-message-icon_orig.png",  style: "max-height: 42px" %>
       <% end %>
-      <span class="font-semibold text-xl tracking-tight"><%= ENV['company_name'] %></span>
+      <span class="font-semibold text-xl tracking-tight text-gray-500"><%= ENV['company_name'] %></span>
     </div>
     <div class="block sm:hidden">
       <button class="navbar-burger flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white" data-action="click->header#toggleMobileNav">
