@@ -29,6 +29,8 @@ module Billable
     update(stripe_subscription_id: subscription_id)
   end
 
+  handle_asynchronously :set_stripe_subscription
+
   def pro_plan?
     plan_name == 'pro'
   end
