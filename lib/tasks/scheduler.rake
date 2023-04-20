@@ -3,7 +3,7 @@ task :insert_task_name => :environment do
 end
 
 task send_digests: :environment do
-  DigestService.perform
+  DigestService.delay.perform
 end
 
 ### USER ONBOARDING - run hourly at 0:00 ###
